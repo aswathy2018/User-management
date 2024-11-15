@@ -1,0 +1,28 @@
+<link href="/hom.css" rel="stylesheet"/>
+
+<%- include('../layouts/header.ejs') %>
+    <nav class="navbar bg-body-primary">
+        <div class="container">
+            <h2>User Home </h2>
+            <div>
+                <a href="/logout" class="btn btn-danger">Logout</a>
+                <a href="/update" class="btn btn-primary">Update</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h3 class="bold mt-5 text-center">Users Details</h3>
+        <div class="userDetails p-5">
+            <table class="table mt-5">
+                <tr>
+                    <th>Name</th>
+                    <td><%=userData.username%></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><%=userData.email%></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<%- include('../layouts/footer.ejs') %>

@@ -1,0 +1,81 @@
+body {
+    background: linear-gradient(to right, #ffffff, #d7d4ff);
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #f8f9fa; /* Light background for the navbar */
+    padding: 15px;
+    border-bottom: 2px solid #e0e0e0; /* Bottom border for separation */
+}
+
+.navbar h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333; /* Dark text for the title */
+}
+
+.navbar .btn {
+    margin-left: 15px; /* Spacing between buttons */
+    font-weight: 600;
+}
+
+.container {
+    max-width: 800px; /* Limit the container width */
+    margin: 50px auto; /* Center the container */
+}
+
+.userDetails {
+    background-color: #ffffff; /* White background for the user details section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 30px; /* Inner padding for the user details section */
+    border: 1px solid #d7d4ff; /* Light border for subtle separation */
+    margin-top: 20px; /* Space above the user details container */
+}
+
+h3.bold {
+    font-size: 28px; /* Larger font size for the heading */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #333; /* Dark text for the heading */
+}
+
+.table {
+    width: 100%; /* Full width table */
+    margin-top: 20px; /* Space above the table */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+.table th, .table td {
+    padding: 15px; /* Padding for table cells */
+    text-align: left; /* Align text to the left */
+}
+
+.table th {
+    background-color: #f0f0ff; /* Light background for header */
+    color: #333; /* Dark text for table header */
+    border-bottom: 2px solid #d7d4ff; /* Bottom border for header */
+}
+
+.table td {
+    border-bottom: 1px solid #e0e0e0; /* Bottom border for separation */
+}
+
+.table tr:hover {
+    background-color: #f8f8ff; /* Highlight row on hover */
+}
+
+/* Additional styles for a responsive design */
+@media (max-width: 600px) {
+    .userDetails {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    h3.bold {
+        font-size: 24px; /* Smaller font size for smaller screens */
+    }
+
+    .navbar h2 {
+        font-size: 20px; /* Smaller font size for navbar */
+    }
+}

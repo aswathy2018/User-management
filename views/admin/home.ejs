@@ -1,0 +1,56 @@
+<%- include("../layouts/header.ejs") %>
+    <div class="container">
+        <h1 class="my-5 text-center">Dashboard</h1>
+        <div class="d-flex justify-content-between">
+            <a href="/admin/logout" class="btn btn-danger">Logout</a>
+            <form action="/admin" method="GET" class="search d-flex gx-5">
+                <input type="text" class="form-control" name="query">
+                <input type="submit" value="Search" class="btn btn-outline-success">
+            </form>
+            <a href="/admin/add-user" class="btn btn-primary">Add User</a>
+        </div>
+        <table class="table table-striped table-light mt-5">
+            <thead>
+                <tr class="table-secondary">
+                    <th>Index No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% userDetails.forEach((data, index)=>{%>
+                    <tr>
+
+                        <td>
+                            <%= index+1 %>
+                        </td>
+                        <td>
+                            <%= data.username %>
+                        </td>
+                        <td>
+                            <%= data.email %>
+                        </td>
+                        <td>
+                            <%= data.password %>
+                        </td>
+                        <td><a href="/admin/editUser/<%=data._id%>" class="btn btn-outline-primary">Edit</a></td>
+                        <td><button
+                                onclick="confirm('Do you want to delete' + '<%=data.username%>')?window.location.replace('/admin/delete/<%=data._id%>'):null"
+                                class="btn btn-outline-danger">Delete</button></td>
+                    </tr>
+                    <%})%>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const confirmDelete = (event, name) => {
+            console.log('confirm')
+            if (!confirm("Are you sure want to delete " + name)) {
+                event.preventDefault();
+            }
+        }
+    </script>
+    <%- include("../layouts/footer.ejs") %>

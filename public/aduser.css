@@ -1,0 +1,39 @@
+body {
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* Dark to light gradient */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.container.signup {
+    max-width: 400px; /* Limit the width of the signup container */
+    width: 100%; /* Full width to take available space */
+    padding: 20px; /* Add padding around the container */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+h1 {
+    font-size: 24px; /* Heading font size */
+    font-weight: 600; /* Bold heading */
+    color: #333; /* Dark text color */
+    text-align: center; /* Center the heading text */
+    margin-bottom: 30px; /* Space below the heading */
+}
+
+.error {
+    margin-top: 10px; /* Space above error messages */
+}
+
+/* Additional styles for input and button */
+input.form-control {
+    border-radius: 5px; /* Rounded corners for inputs */
+}
+
+.btn {
+    width: 100%; /* Full-width button */
+}

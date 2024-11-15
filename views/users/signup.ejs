@@ -1,0 +1,104 @@
+<link href="/style.css" rel="stylesheet"/>
+
+<%- include("../layouts/header.ejs") %>
+    <div class="container signup">
+        <form action="/signup" method="POST" class="signupForm has-validation" id="form" novalidate>
+            <h1>User Registration</h1>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Enter Your Email">
+                <label for="floatingInput">Email address</label>
+                <div id="emailFeedback"></div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control " id="username" name="name" placeholder="Enter Your Username">
+                <label for="floatingInput">Username</label>
+                
+                <div id="usernameFeedback"></div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="password" id="password"
+                    placeholder="Enter Your Password">
+                <label for="floatingInput">Password</label>
+                <div id="passwordFeedback"></div>
+
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="cpassword" placeholder="Confirm  Password">
+                <label for="floatingInput">Confirm Password</label>
+                <div id="cpasswordFeedback"></div>
+
+            </div>
+            <div class="error text-danger">
+                <%= message ?? '' %>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Register</button>
+                <a type="submit" href="/login" class="btn btn-outline-primary">Login</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        const validate_form = () => {
+            let valid = true;
+            const username = document.getElementById('username');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const cpassword = document.getElementById('cpassword');
+
+            // error fields;
+            const username_feedback = document.getElementById('usernameFeedback');
+            const email_feedback = document.getElementById('emailFeedback');
+            const password_feedback = document.getElementById('passwordFeedback');
+            const cpassword_feedback = document.getElementById('cpasswordFeedback');
+            
+            // checking if username length less than 4
+            if (username.value.length < 4) {
+                username.classList.add('is-invalid')
+                username_feedback.innerHTML = "Username must be 4 letter long"
+                username_feedback.classList.add('invalid-feedback')
+                valid = false
+            }else{
+                username.classList.remove('is-invalid');
+            }
+            
+            // checking if email is valid
+            if ( !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                email.classList.add('is-invalid')
+                email_feedback.innerHTML = "Invalid email"
+                email_feedback.classList.add('invalid-feedback')
+                valid = false
+            }else{
+                email.classList.remove('is-invalid');
+            }
+            
+            // checking if password is atleast  8 character long
+            if (password.value.length < 8) {
+                password.classList.add('is-invalid')
+                password_feedback.innerHTML = "Password must be atleast 8 character long"
+                password_feedback.classList.add('invalid-feedback')
+                valid = false
+            }else{
+                password.classList.remove('is-invalid');
+            }
+            
+            // checking if password and confirm password matching
+            if (cpassword.value !== password.value) {
+                cpassword.classList.add('is-invalid')
+                cpassword_feedback.innerHTML = "Password are not matching";
+                cpassword_feedback.classList.add('invalid-feedback')
+                valid = false
+            }else{
+                cpassword.classList.remove('is-invalid');
+            }
+
+            return valid;
+        }
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (event) => {
+            if (!validate_form()) {
+                event.preventDefault()
+            }
+            form.addEventListener('keyup', validate_form);
+        })
+    </script>
+    <% include("../layouts/footer.ejs") %>

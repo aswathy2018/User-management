@@ -1,0 +1,81 @@
+body {
+    background: linear-gradient(to right, #ffffff, #d7d4ff);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height to center the container vertically */
+    margin: 0;
+}
+
+.container.login {
+    max-width: 500px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding to the form container */
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners for the form */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.loginForm h1 {
+    font-size: 24px; /* Heading font size */
+    font-weight: 600; /* Bold heading */
+    color: #333; /* Dark text for the heading */
+    text-align: center; /* Center the heading text */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.form-floating {
+    position: relative; /* Position for floating labels */
+    margin-bottom: 20px; /* Space between form fields */
+}
+
+.form-floating label {
+    padding: 0 5px; /* Padding around the label */
+    color: #555; /* Gray color for the label */
+    font-size: 14px; /* Font size for the label */
+    transition: 0.3s ease; /* Smooth transition for floating label */
+}
+
+.form-control {
+    padding: 10px; /* Padding inside input fields */
+    font-size: 16px; /* Font size for input fields */
+    border: 1px solid #ced4da; /* Border color for input fields */
+    border-radius: 4px; /* Rounded corners for input fields */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* Shadow effect on focus */
+}
+
+.invalid-feedback {
+    color: #dc3545; /* Red color for invalid feedback */
+    font-size: 14px; /* Font size for invalid feedback */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border: none; /* No border */
+    color: #fff; /* White text color */
+    font-weight: 600; /* Bold text */
+    padding: 10px; /* Padding for buttons */
+    border-radius: 4px; /* Rounded corners for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Full-width button */
+    margin-top: 10px; /* Space above the button */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+@media (max-width: 600px) {
+    .container.login {
+        padding: 15px; /* Less padding for smaller screens */
+    }
+
+    .loginForm h1 {
+        font-size: 20px; /* Smaller font size for heading on mobile */
+    }
+}

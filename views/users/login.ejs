@@ -1,0 +1,66 @@
+<link href="/log.css" rel="stylesheet"/>
+
+<%- include("../layouts/header.ejs") %>
+    <div class="container login">
+        <form action="/login" method="POST" id="form" class="loginForm">
+            <h1>Log In</h1>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control " id="email" name="email" placeholder="Enter Your Email">
+                <label for="floatingInput">Email</label>
+                <div id="emailFeedback"></div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="password" id="password"
+                    placeholder="Enter Your Password">
+                <label for="floatingInput">Password</label>
+                <div id="passwordFeedback"></div>
+            </div>
+            <div class="error text-danger">
+                <%= message ?? '' %>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a type="submit" href="/signup" class="btn btn-outline-primary">Sign Up</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        const validate_form = () => {
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+
+            const email_feedback = document.getElementById('emailFeedback')
+            const password_feedback = document.getElementById('passwordFeedback')
+
+            let valid = true;
+            // checking if email is valid
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                email.classList.add('is-invalid')
+                email_feedback.innerHTML = "Invalid email"
+                email_feedback.classList.add('invalid-feedback')
+                valid = false
+            } else {
+                email.classList.remove('is-invalid');
+            }
+            // checking if password is atleast  8 character long
+            if (password.value.length < 8) {
+                password.classList.add('is-invalid')
+                password_feedback.innerHTML = "Password must be atleast 8 character long"
+                password_feedback.classList.add('invalid-feedback')
+                valid = false
+            } else {
+                password.classList.remove('is-invalid');
+            }
+
+            return valid;
+        }
+
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (event)=>{
+            if(!validate_form()){
+                event.preventDefault()
+            }
+            form.addEventListener('keyup', validate_form)
+        })
+    </script>
+    <% include("../layouts/footer.ejs") %>

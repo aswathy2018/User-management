@@ -1,0 +1,19 @@
+{
+  "name": "admin-panel",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon -L app"
+  },
+  "author": "athulkrishnama",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.7.3",
+    "nocache": "^4.0.0"
+  }
+}
