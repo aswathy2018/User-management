@@ -92,6 +92,7 @@ const verifyUser = async (req, res) => {
 const loadHome = async (req, res) => {
     try {
         const userData = await User.findOne({ username: req.session.user?.username });
+        
         if (userData) {
             res.render('home', { title: 'Home', userData})
         }else{
